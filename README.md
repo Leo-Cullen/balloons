@@ -32,7 +32,7 @@ Does clicking outside balloon record a miss?
 Do key presses affect the game?
 
 ### Deployment
-Github Pages
+Github Pages:  https://leocullenloerch.github.io/balloons/
 
 ### Ackowledgements
 The basic canvas setup and game outline was based on parts 1 and 2 of the Mozilla tutorial: https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
