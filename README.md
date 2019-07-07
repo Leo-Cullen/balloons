@@ -1,6 +1,6 @@
 ### Balloons! A balloon popping game
 
-The aim of 'Balloons!' is simply to pop as many balloons as possible in a timeframe.
+The aim of 'Balloons!' is simply to pop as balloons as quickly as possible. The more balloons popped, the more points.
 
 ## Testing
 Does game load?
