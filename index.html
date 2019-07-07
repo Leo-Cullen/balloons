@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Balloons!</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #e3edfc; /*display: block; margin: 0 auto;*/ }
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+  
+    // color array holds the balloon colors. these will be selected at random
+    colorArray = ['red','lime','cyan','yellow','pink','orange','purple'];
+     // select a color at random from the color array
+     color = Math.floor(Math.random() * colorArray.length);
+    // var dy is the increment for the balloon's y position so it looks like it's moving upwards
+    var dy = -2;
+    // set up game canvas and context
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+   
+    var x = Math.random() * 450;  // start the balloon in a random position on the x-axis
+    var y = canvas.height-30; // start the balloon at full balloon height above the canvas
+    // hold the mouse's x,y position here
+    var mouseX;
+    var mouseY;
+
+    var balloonY; // hold balloon's newest y position
+
+    // handle mouse clicks    
+    function onDown(event) {
+        
+        mouseX = event.pageX; // - 432 - canvas.width; // - canvas.width; // gets mouse x-coordinate
+        mouseY = 320 - event.pageY; // canvas y position is calculated from top (y = 0) down.
+        isBalloonHit(mouseX, mouseY, x, balloonY, 30); // check if the balloon is hit
+        //alert(mouseX+','+ mouseY);
+    };
+
+//Check if mouse click is within balloon. MouseX, MouseY is the point to test
+// x, y is the balloon center, and radius is balloon radius
+function isBalloonHit(mouse_x, mouse_y, balloon_x, balloon_y, radius) {
+    var distancesquared = (mouse_x - balloon_x) * (mouse_x - balloon_x) + (mouse_y - balloon_y) * (mouse_y - balloon_y);
+  if (distancesquared <= radius * radius) {
+      alert('Balloon Burst!');
+  }
+  else { alert('You missed!'); }
+}
+
+function drawBalloon() {
+    ctx.beginPath(); // start drawing
+    ctx.arc(x, y, 30, 0, Math.PI*2); // draw a cirlce
+    ctx.fillStyle = colorArray[color]; // get a random fill color for the balloon
+    ctx.fill(); // color in the balloon
+    ctx.closePath(); // end drawing
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the canvas
+    myCanvas.addEventListener('mousedown', onDown, false); // listen for mouse clicks 
+    drawBalloon();  
+    y += dy; // update balloon position on y-axis. x-axis position remains the same.
+    balloonY = 320 - y; // y position is calculated from top of the window. Subtract from canvas height.
+} 
+
+setInterval(draw, 10); // redraw every 20 ms
+
+</script>
+
+</body>
+</html>
+
