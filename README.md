@@ -31,6 +31,9 @@ Does clicking on balloon record a hit?
 Does clicking outside balloon record a miss?
 Do key presses affect the game?
 
+### Deployment
+Github Pages
+
 ### Ackowledgements
 The basic canvas setup and game outline was based on parts 1 and 2 of the Mozilla tutorial: https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
 The code to check if a mouse click is inside a balloon is based on: https://stackoverflow.com/questions/16792841/detect-if-user-clicks-inside-a-circle
